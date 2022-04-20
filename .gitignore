@@ -1,3 +1,10 @@
+# Folders
+boost/*
+DB/*
+OpenSSL/*
+obj/*
+wxWidgets/*
+
 # Prerequisites
 *.d
 
@@ -30,3 +37,7 @@
 *.exe
 *.out
 *.app
+
+# Logs
+*.log
+*.txt
