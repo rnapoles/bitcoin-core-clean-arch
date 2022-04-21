@@ -14,7 +14,8 @@ int main(){
   cout << "4- " << "GetAdjustedTime() " << GetAdjustedTime() << endl;
   AddTimeData(4,4);
   cout << "5- " << "GetAdjustedTime() " << GetAdjustedTime() << endl;
-
   
+  cout << "==============\n";
+
   return 0;
 }

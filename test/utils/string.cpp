@@ -9,12 +9,15 @@ int main(){
   string strLine = "1 2 3";
   ParseString(strLine, ' ', vWords);
 
+  cout << "ParseString:" << endl;
   for (auto x: vWords) {
-    cout << x << ' ' << endl;
+    cout << "\t" << x << endl;
   }
 
   vector<unsigned char> vch = {1,2,3,4,5,6};
-  cout << HexNumStr(vch.begin(), vch.end()) << endl;
-  
+  cout << "HexNumStr: " << HexNumStr(vch.begin(), vch.end()) << endl;
+
+  cout << "==============\n";
+
   return 0;
 }

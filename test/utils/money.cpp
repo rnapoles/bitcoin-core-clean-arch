@@ -19,6 +19,7 @@ int main(){
   cout << "ParseMoney('100.00',n1) " << n1 << endl;
   cout << "ParseMoney('200.00',n1) " << n2 << endl;
 
+  cout << "==============\n";
 
   return 0;
 }

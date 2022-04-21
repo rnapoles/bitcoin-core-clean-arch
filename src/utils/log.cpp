@@ -1,7 +1,12 @@
 #include <cstdio>
 #include <cstdarg>
+#include <string.h>
+#include <typeinfo>
 #include <windows.h>
+#include <thread/sync.h>
 #include <utils/log.h>
+#include <utils/macros.h>
+#include <utils/string.h>
 
 bool error(const char* format, ...)
 {
@@ -45,7 +50,8 @@ void PrintException(std::exception* pex, const char* pszThread)
     //DebugBreak();
 }
 
-inline int OutputDebugStringF(const char* pszFormat, ...)
+/*
+int OutputDebugStringF(const char* pszFormat, ...)
 {
 #ifdef __WXDEBUG__
     // log file
@@ -111,3 +117,4 @@ inline int OutputDebugStringF(const char* pszFormat, ...)
 
     return 0;
 }
+*/

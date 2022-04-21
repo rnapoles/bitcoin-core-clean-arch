@@ -2,10 +2,9 @@
 #define UTILS_LOG_H
 
 #include <exception>
-#include <utils/string>
 
 #ifdef _WINDOWS
-#define printf              OutputDebugStringF
+//#define printf              OutputDebugStringF
 #endif
 
 #ifdef snprintf
@@ -15,5 +14,6 @@
 
 bool error(const char* format, ...);
 void PrintException(std::exception* pex, const char* pszThread);
+//int OutputDebugStringF(const char* pszFormat, ...)
 
 #endif
