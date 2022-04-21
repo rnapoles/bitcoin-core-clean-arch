@@ -65,6 +65,16 @@ BASE_15=caddress
 BASE_16=cmessageheader
 BASE_17=net
 BASE_18=cnode
+BASE_19=coutpoint
+BASE_20=cdisktxpos
+BASE_21=ctxindex
+BASE_22=script
+BASE_23=ctxin
+BASE_24=ctxout
+BASE_25=cinpoint
+BASE_26=ctransaction
+
+BASE_50=domain
 
 OBJS1= \
 	 obj/$(BASE_1)-test.o 
@@ -142,11 +152,30 @@ OBJS17= \
 	 obj/$(BASE_17).o \
 	 obj/$(BASE_17)-test.o 
 
+OBJS19= \
+	 obj/$(BASE_19).o 
+
+OBJS50= \
+	 obj/$(BASE_5).o \
+	 obj/$(BASE_12).o \
+	 obj/$(BASE_13).o \
+	 obj/$(BASE_14).o \
+	 obj/$(BASE_19).o \
+	 obj/$(BASE_20).o \
+	 obj/$(BASE_21).o \
+	 obj/$(BASE_22).o \
+	 obj/$(BASE_23).o \
+	 obj/$(BASE_24).o \
+	 obj/$(BASE_25).o \
+	 obj/$(BASE_26).o \
+	 obj/$(BASE_50)-test.o 
+
 
 all:
 	echo $(LIBPATHS) >> out.txt
 
 all: directories \
+  bin/test/$(BASE_50)-test.exe \
   bin/test/$(BASE_17)-test.exe \
   bin/test/$(BASE_16)-test.exe \
   bin/test/$(BASE_15)-test.exe \
@@ -286,6 +315,42 @@ obj/$(BASE_18).o: src/net/$(BASE_18).cpp
 	@echo $(BASE_18) $?
 	$(CXX) -c $(CFLAGS) -O3 -o $@ $<
 
+obj/$(BASE_19).o: src/domain/$(BASE_19).cpp 
+	@echo $(BASE_19) $?
+	$(CXX) -c $(CFLAGS) -O3 -o $@ $<
+
+obj/$(BASE_20).o: src/domain/$(BASE_20).cpp 
+	@echo $(BASE_20) $?
+	$(CXX) -c $(CFLAGS) -O3 -o $@ $<
+
+obj/$(BASE_21).o: src/domain/$(BASE_21).cpp 
+	@echo $(BASE_21) $?
+	$(CXX) -c $(CFLAGS) -O3 -o $@ $<
+
+obj/$(BASE_22).o: src/script/$(BASE_22).cpp 
+	@echo $(BASE_22) $?
+	$(CXX) -c $(CFLAGS) -O3 -o $@ $<
+
+obj/$(BASE_23).o: src/domain/$(BASE_23).cpp 
+	@echo $(BASE_23) $?
+	$(CXX) -c $(CFLAGS) -O3 -o $@ $<
+
+obj/$(BASE_24).o: src/domain/$(BASE_24).cpp 
+	@echo $(BASE_24) $?
+	$(CXX) -c $(CFLAGS) -O3 -o $@ $<
+
+obj/$(BASE_25).o: src/domain/$(BASE_25).cpp 
+	@echo $(BASE_25) $?
+	$(CXX) -c $(CFLAGS) -O3 -o $@ $<
+
+obj/$(BASE_26).o: src/domain/$(BASE_26).cpp 
+	@echo $(BASE_26) $?
+	$(CXX) -c $(CFLAGS) -O3 -o $@ $<
+
+obj/$(BASE_50)-test.o: test/domain/$(BASE_50).cpp 
+	@echo $(BASE_50) $?
+	$(CXX) -c $(CFLAGS) -O3 -o $@ $<
+
 directories: 
 	${MKDIR_P} ${OUT_DIR}
 
@@ -334,6 +399,9 @@ bin/test/$(BASE_16)-test.exe: $(OBJS16)
 bin/test/$(BASE_17)-test.exe: $(OBJS17)
 	$(CXX) $(CFLAGS) $(WINFLAGS) -o $@ $(LIBPATHS) $(OBJS17) $(LIBS)
 
+bin/test/$(BASE_50)-test.exe: $(OBJS50)
+	$(CXX) $(CFLAGS) $(WINFLAGS) -o $@ $(LIBPATHS) $(OBJS50) $(LIBS)
+
 run-test:
 	bin/test/$(BASE_1)-test 
 	bin/test/$(BASE_2)-test 
@@ -350,6 +418,7 @@ run-test:
 	bin/test/$(BASE_15)-test
 	bin/test/$(BASE_16)-test
 	bin/test/$(BASE_17)-test
+	bin/test/$(BASE_50)-test
 
 clean:
 	echo $(OS)
